@@ -1,0 +1,172 @@
+/*清除默认样式*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  /*清除ie6默认图片边框*/
+  border: 0;
+  /*清除图片底部默认缝隙*/
+  vertical-align: middle;
+}
+
+input {
+  border: 0;
+  /*清除轮廓线*/
+  outline: 0;
+}
+
+
+/* h1, h2, h3, h4, h5, h6 { font-weight: 400; } */
+
+i,
+em {
+  font-style: normal;
+}
+
+
+/*常用样式*/
+
+body {
+  font: 14px arial, 'microsoft yahei';
+  /*需要修改*/
+  color: #333;
+  /*需要修改*/
+}
+
+.w {
+  /*修改版心宽度*/
+  width: 1000px;
+  /*修改版心宽度*/
+  margin: 0 auto;
+}
+
+
+/*a标签的颜色修改*/
+
+a {
+  color: #333;
+}
+
+a:hover {
+  color: #c00;
+}
+
+
+/*a标签的颜色修改*/
+
+
+/*修改，除正常文字颜色外，需要调用的其他颜色文字*/
+
+
+/* .red {
+  color: #333333;
+} */
+
+
+/*除正常文字颜色外，需要调用的其他颜色文字*/
+
+.tc {
+  text-align: center;
+}
+
+.db {
+  display: block;
+}
+
+.dib {
+  display: inline-block;
+}
+
+.dn {
+  display: none;
+}
+
+.f12 {
+  font-size: 12px;
+}
+
+.f14 {
+  font-size: 14px;
+}
+
+.f16 {
+  font-size: 16px;
+}
+
+.f18 {
+  font-size: 18px;
+}
+
+.f20 {
+  font-size: 20px;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clear {
+  *zoom: 1;
+}
+
+
+/* a,
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+} */
+
+
+/*字体图标*/
+
+
+/*定义字体图标步骤
+  1.下载子图图标
+  2.拷贝到fonts文件夹
+  3.找到说明文件demo_index.html
+  4.按照文件拷贝@font-face到css文件,注意路径
+  5.定义.iconfont，设置字体为iconfont
+  6.把unicode字体的代码拷贝到合适的标签里，给其调用.iconfont */
+
+
+/*定义一个字体iconfont*/
+
+
+/*@font-face {
+  font-family: 'iconfont';
+  src: url('../fonts/iconfont.eot');
+  src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+  	   url('../fonts/iconfont.woff') format('woff'),
+ 	   url('../fonts/iconfont.ttf') format('truetype'),
+ 	   url('../fonts/iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+	font-family: 'iconfont';
+
+}*/

@@ -1,0 +1,279 @@
+/**
+*  ZOLCMS通用JS tab切换 
+*  
+*/
+
+(function($){
+	$.fn.lazyNavi=function(nor,act,tm,flag){
+		var navi_over = '';
+		$(this).children().mouseover(function(){
+			var self = this;
+			navi_over = setTimeout(function(){
+			if($(self) == null || $(self).attr("rel") == null) return;
+			if($(self).hasClass(nor) || !$(self).hasClass(act)){
+				if(act) {
+					act_class = '.'+act;
+				} else {
+					act_class = '[class="'+act+'"]';
+				}
+			    var act_navi = $(self).siblings(act_class);
+			    if(act) {
+			    	act_navi.removeClass(act);
+			    }
+			    if(nor) {
+			    	act_navi.addClass(nor);
+			    }
+		 	    var rel_div = act_navi.attr("rel");
+			    $("#"+rel_div).hide();
+			    var now_div =$(self).attr("rel");
+			    if(nor) {
+			    	$(self).removeClass(nor);
+			    }
+			    if(act) {
+		 	    	$(self).addClass(act);
+			    }
+		 	    if(flag) {
+					$("#"+now_div).getLazyArea();
+		 	    }
+			    $("#"+now_div).show();	
+	        }
+			},tm);	
+		});
+		$(this).children().mouseout(function(){
+			if(navi_over) {
+				clearTimeout(navi_over);
+			}
+		});
+
+ 	};
+ 	$.fn.autoNavi=function(nor,act,tm,flag,clear_auto,clear_auto_btn,clear_auto_1){
+ 		var self = this;
+ 		function navi_auto(){
+			if(act) {
+				act_class = '.'+act;
+			} else {
+				act_class = '[class="'+act+'"]';
+			}
+ 			var act_navi = $(self).children(act_class);
+			if(act) {
+			    act_navi.removeClass(act);
+			}
+			if(nor) {
+			    act_navi.addClass(nor);
+			}
+ 			var rel_div = act_navi.attr("rel");
+ 			if(!rel_div) {
+ 				return;
+ 			}
+ 			$("#"+rel_div).hide();
+ 			while(1) {
+ 				var next_navi = act_navi.next();
+ 				if(next_navi.html() == null) {
+ 					next_navi = $(self).children().eq(0);
+ 				}
+ 				act_navi = next_navi;
+ 				if(next_navi.attr("rel")) {
+ 					break;
+ 				}
+ 			}
+			if(nor) {
+			    next_navi.removeClass(nor);
+			}
+			if(act) {
+		 	    next_navi.addClass(act);
+			}
+ 			var next_div = next_navi.attr("rel");
+ 			if(flag) {
+ 				$("#"+next_div).getLazyArea();
+ 			}
+ 			$("#"+next_div).show();
+ 		}
+ 		var auto_navi = setInterval(navi_auto,tm);
+ 		function navi_over(){clearInterval(auto_navi)}
+ 		function navi_out(){
+ 			if(auto_navi){clearInterval(auto_navi);}
+ 			auto_navi = setInterval(navi_auto,tm);
+ 		}
+ 		if(clear_auto) {
+ 			$(clear_auto).hover(function(){navi_over()},function(){navi_out()});
+ 			if(clear_auto_btn){
+ 				$(clear_auto_btn).toggle(
+ 					function(){navi_over();$(this).addClass('stop');$(clear_auto).unbind()},
+    				function(){navi_out();$(this).removeClass('stop');$(clear_auto).hover(function(){navi_over()},function(){navi_out()});}
+    			);
+ 			}
+ 		}
+ 		if(clear_auto_1){
+ 			$(clear_auto_1).hover(function(){navi_over()},function(){navi_out()});
+ 		}
+ 	};
+ 	$.fn.getLazyArea=function(){
+		var lazyarea = $(this).children('textarea');
+	    if(lazyarea.length == 1) {			
+			lazyarea.hide();
+			var lazyhtml = lazyarea.val();
+			$(this).html(lazyhtml);
+		}
+ 	};
+ })(jQuery);
+ (function($) {
+	$.fn.picLazyLoad = function(options) {
+		var defaults = {
+			checkShow: false
+		};
+		var options = $.extend(defaults, options);
+		var elements = this;
+		var naviUA = navigator.userAgent;
+		var checkToShow = function() {
+			elements.each(function() {
+				if (!$.belowthefold(this)) {
+					$.toshowimg(this)
+				}
+			});
+			var temp = $.grep(elements,
+			function(element) {
+				return ! element.loaded
+			});
+			elements = $(temp)
+		};
+		if (naviUA.match(/iPhone|iPad|iPod/i)) {
+			elements.each(function() {
+				$.toshowimg(this)
+			})
+		} else {
+			$(window).bind("scroll",
+			function() {
+				checkToShow()
+			});
+			$(window).bind("resize",
+			function() {
+				checkToShow()
+			})
+		}
+		if (options.checkShow) {
+			checkToShow()
+		}
+	};
+	$.toshowimg = function(element) {
+		if (!element.loaded && $(element).attr("data-lazyload-src")) {
+			$(element).attr("src", $(element).attr("data-lazyload-src")).removeAttr('data-lazyload-src');
+			element.loaded = true
+		}
+		if (!element.loaded && $(element).attr(".src")) {
+			$(element).attr("src", $(element).attr(".src"));
+			element.loaded = true
+		}
+	};
+	$.belowthefold = function(element) {
+		var fold = $(window).height() + $(window).scrollTop();
+		//console.log(fold,$(element).offset().top);
+		return fold <= $(element).offset().top - 200
+	};
+	$.rightoffold = function(element) {
+		var fold = $(window).width() + $(window).scrollLeft();
+		return fold <= $(element).offset().left
+	}
+})(jQuery);/*!
+ * @description : 文章页弹出层插件 基于JQ
+ * @copyright   : http://www.zol.com.cn/
+ * @author      : xuzongsheng
+ * @version     : 1.0 (2014-05-27)
+ * @modifier    : xuzongsheng
+ * @change 		: pengxf   to 修复再跨域情况出现的问题
+ */
+(function($){
+    var dialogCssLock = 0;
+    var dialogTimer   = null;
+    $.dialog = function(options){
+    	var defaults=$.extend({
+    	    title    : ''    //自定义标题
+    	    ,content : ''    //提示内容
+    	    ,ok      : null  //确定按钮回调函数
+    	    ,cancel  : null  //取消按钮回调函数
+    	    ,close   : null  //对话框关闭前执行的函数
+    	    ,time    : null  //自动关闭时间
+    		,cssUrl  : '//icon.zol-img.com.cn/cms/css/dialog.css'
+    		,type    : 0
+    		,origintype : 0   // 是否是跨域的是为 1  不是为0
+    		,callback: function(){ return true; }    //回调函数
+    	},options);
+    	var isTop = parent && !defaults.origintype;
+    	//兼容ifame嵌套
+    	if (isTop) {
+    		var win = $(parent.window);
+    		var top = parent.document;
+    	} else {
+    		var win = $(window);
+    		var top = document;
+    	}
+    	
+    	var dialogBox = {
+            createHTML: function(){
+                //动态引入CSS，当填写了css地址的时候，就可以动态加载，但这样会在网速不给力的情况下渲染不到
+                if (defaults.cssUrl != '') {
+                	var timestamp=new Date().getTime();
+                	var css = '<link href="'+ defaults.cssUrl + '" rel="stylesheet">';
+                	if (!dialogCssLock) {
+                		if (isTop) {
+                			$(window.parent.document).find('head').append(css);
+                		} else {
+                			$('head').append($(css));
+                		}
+                		dialogCssLock = 1;
+                	}
+                }
+                if(defaults.type==1){
+                    if ($('.comment-succeed-pop', top).length > 0) $('.comment-succeed-pop', top).remove();
+                    var htmlStr='<div class="comment-succeed-pop" style="display:none;">'+'<div class="comment-succeed-pop-inner">'+'<span class="succeed-ico"></span>'+defaults.content+'</div></div>';
+                }else{
+                    //防止重复加载对话框
+                    if ($('.article-pup-box', top).length > 0) $('.article-pup-box', top).remove();
+                    var titleStr = defaults.title ? '<div class="article-pup-head">'+ defaults.title +'</div>' : ''; 
+                    var htmlStr  = '<div class="article-pup-box">'
+                                 + '    <div class="article-pup-main">'
+                                 + '        <span class="article-pup-close"></span>'+ titleStr
+                                 + '        <div class="article-pup-cont">'
+                                 + '            <table><tbody><tr><td>'+ defaults.content +'</td><tr><tbody><table>'
+                                 + '        </div><div class="article-pup-foot"><a href="javascript:;" class="sure" target="_self">确定</a></div>'
+                                 + '    </div>'
+                                 + '</div>';
+                }
+            	if (isTop) {
+            		$(window.parent.document.body).append(htmlStr);
+            	} else {
+            		$(htmlStr).appendTo('body');
+            	}
+            }
+    	}
+    	dialogBox.createHTML();
+        $('.article-pup-close,.article-pup-foot .sure', top).live('click', function(){
+        	$('.article-pup-box', top).remove();
+        	if(defaults.callback){
+        		var dialogCallback = defaults.callback;
+        		try{
+        			if(typeof(dialogCallback) == "function"){
+        				dialogCallback();	
+        			}
+        		}catch(e){}
+        	} 
+        });
+    	var popup = $('.comment-succeed-pop', top);
+    	var closePop = function (timer) {
+    		if (dialogTimer) {
+    			clearTimeout(dialogTimer);
+    		} 
+    		
+    	    dialogTimer = setTimeout(function(){
+    			popup.fadeOut(800,function(){popup.remove()});
+    		},timer);
+    	}
+    	var closeTime = defaults.time ?  defaults.time*1000 : 2000;
+        popup.fadeIn(500,function(){closePop(closeTime);});
+        popup.mouseenter(function(){
+            clearTimeout(dialogTimer);
+        });
+        popup.mouseleave(function(){
+            closePop(closeTime);
+        });
+    }
+})(jQuery);

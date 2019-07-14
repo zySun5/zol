@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Site Blocked</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
+
+    <style>
+        /* it's all here, no external css file needed */
+        body {
+            font-family: Helvetica, sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 200%;
+            color: #d4cec3;
+            background-color: #421;
+        }
+        #logo-wrapper { position: absolute; padding: 34px; width: 600px; height: 400px;}
+        #main-wrapper { text-align: center; }
+        #main { display: inline-block; padding: 100px 20%; text-align: center; max-width: 30em;}
+        h2   { font-size: 3em; color: white; line-height: 1.3em;}
+        h3   { color: white;}
+        a        { color: #ddd; text-decoration: none; }
+        a:hover  { color: #0cc; }
+        a:active { color: #ccc; }
+        .button-text   { font-size: 14px; font-weight: bold; }
+        #incorrect-button { display: inline-block; cursor: pointer;
+            padding: 0 1em; line-height: 35px; border: 1px white solid; }
+        #icon {display: inline-block; width: 95px; height: 95px;
+            background-image: url(/images/icons.png); background-position: 95px 0;}
+        @media only screen and (max-width : 725px) {
+            body { font-size: 12px; }
+            #main { padding: 50px 5%; }
+            #icon { transform: scale(0.5); }
+            #logo {  }
+            #logo-wrapper { padding: 0; width: 300px; height: 200px;
+                transform:  matrix(0.5, 0, 0, 0.5, -75, -50); }
+        }
+        #captcha_container { padding-top: 20px; padding-bottom: 15px; }
+        legend { font-size: 14px; font-weight: bold; }
+        .form-legend { font-size: 14px; text-align: left; }
+    </style>
+
+</head>
+<body>
+        <div id=logo-wrapper>
+        <img id=gets-logo src=about:blank>
+    </div>
+
+    <div id=main-wrapper>
+        <div id=main>
+            <div id=icon></div>
+            <br>
+            <h2 id=title></h2>
+            <h3 id=gets-domain></h3>
+            <p id=categoroid>
+                <span id=categorizeLine>This site has been categorized as <span id=category_name></span>.</span>
+                <span id=contextual_msg></span>.
+                <span id=discontinueLine>It is recommended that you do not continue.</span>
+            </p>
+            <p id=nx-domain style=display:none>
+                <b>You have a few options:</b>
+                <br>
+                <b>1)</b> Check the URL for typos and try again.
+                <br>
+                <b>2)</b> Try returning to the previous page.
+            </p>
+            <div id=padding-buttons style="width: 1em; height: 1em;"></div>
+            <a id=incorrect-button class=button-text href=about:blank>This is incorrect</a>
+            <span style="display: inline-block; width: 1.5em;"></span>
+            <a id=anyway-button class=button-text href=about:blank>Visit the site anyway</a>
+            <div style="width: 1em; height: 1em;"></div>
+            <form id="dispute-form" style="display: none;">
+                <fieldset>
+                <legend>Submit Domain Categorization Dispute</legend>
+                    <table style="width: 95%">
+                        <tr><td class=form-legend>Your email address (optional)</td><td><input id="formEmailAddress" type="text" size="32" maxLength="64"></td></tr>
+                        <tr><td class=form-legend>Suggested Category (optional)</td><td><input id="formSuggestedCategory" type="text" size="32" maxLength="32"></td></tr>
+                    </table>
+                <div id="captcha_container"></div>
+                <input id="formDomain" type="hidden">
+                <input id="formCurrentCategory" type="hidden">
+                <input id="sponsorId" type="hidden">
+                <input id="accountId" type="hidden">
+                <span id=formResponseMessage style="display: none; font-weight: bold;"></span>
+                <button id="formSubmit" disabled>Send Request</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    // this gets a node by its id.  $$$('xyz') === jquery $('#xyz') for html node with id=xyz
+    function $$$(id) { return document.getElementById(id) }
+
+    // set whether warn, block, nxdomain
+    function setSeverity(severity) {
+        var body = document.body;
+        body.style.color = severity.inkColor;
+        body.style.backgroundColor = severity.bgColor;
+
+        $$$('title').innerHTML = severity.title;
+
+        $$$('icon').style.backgroundPosition = severity.bgOffset;
+        if (!severity.incorrectButton) $$$('incorrect-button').style.display = 'none';
+        if (!severity.anywayButton) $$$('anyway-button').style.display = 'none';
+
+        if (severity.nxDomain) {
+            $$$('nx-domain').style.display = 'block';
+            $$$('categoroid').style.display = 'none';
+        }
+        if (!severity.anywayButton)
+            $$$('discontinueLine').style.display = 'none';  // redundant except for warn
+    }
+
+    // all additional info needed
+    function setRuntimeInfo(runtimeInfo) {
+        $$$('gets-logo').src = runtimeInfo.logo;
+        $$$('gets-domain').innerHTML = runtimeInfo.domain;
+        $$$('category_name').innerHTML = runtimeInfo.title;
+        $$$('contextual_msg').innerHTML = runtimeInfo.message;
+        $$$('anyway-button').href = 'http://' + runtimeInfo.redirectionHost + '/?redirect='+ runtimeInfo.problemUrl;
+
+        // form the url for the Incorrect button
+        var incor = runtimeInfo.disputeContact;
+        if (runtimeInfo.disputeContact.startsWith('mailto')) {
+            incor += "?subject=UltraDNS web category dispute&body=Domain " + runtimeInfo.domain + " is categorized as " + runtimeInfo.title + ".";
+        }
+        $$$('incorrect-button').href = incor;
+
+        if ('blacklisted' == runtimeInfo.title) {
+            $$$('categorizeLine').style.display = 'none';  // redundant
+        }
+
+        // dispute form instead of href (getting rid of email feedback)
+        if (runtimeInfo.noDispute == "true") {
+            // hide categorization string and dispute link
+            $$$('incorrect-button').style.display = 'none';
+            $$$('categorizeLine').style.display = 'none';
+        } else if (runtimeInfo.disputeFormEnabled) {
+            $$$('incorrect-button').removeAttribute("href");
+            $$$('formDomain').value = runtimeInfo.domain;
+            $$$('formCurrentCategory').value = runtimeInfo.title;
+            $$$('sponsorId').value = runtimeInfo.sponsorId;
+            $$$('accountId').value = runtimeInfo.accountId;
+
+            // add event listener to display dispute form
+            $$$('incorrect-button').addEventListener('click', function() {
+                if ($$$('anyway-button').style.display.toLowerCase() === 'none') {
+                    $$$('incorrect-button').style.display = 'none';
+                    $$$('padding-buttons').style.display = 'none';
+                } else {
+                    $$$('incorrect-button').style.visibility = 'hidden';
+                }
+                $$$('dispute-form').style.display = 'block';
+                var captchaContainer = null;
+                var loadCaptcha = function() {
+                  captchaContainer = grecaptcha.render('captcha_container', {
+                    'sitekey':  '6LewHloUAAAAAKdXnqjicyOfUNBxw-jH1jK6oNKA',
+                    'callback': function(response) {
+                        $$$('formSubmit').disabled = false;
+                    }
+                  });
+                };
+                loadCaptcha();
+            });
+        }
+    }
+
+    var severities = {
+        warn: {
+            title: 'Site Warning',
+            inkColor: '#d4cec3',
+            bgColor: '#4d3000',
+            bgOffset: '95px 0',
+            incorrectButton: true,
+            anywayButton: true,
+        },
+        block: {
+            title: 'Site Blocked',
+            inkColor: '#ebe3e3',
+            bgColor: '#4b0009',
+            bgOffset: '190px 0',
+            incorrectButton: true,
+        },
+        nxdomain: {
+            title: "Sorry, we couldn't find that site.",
+            inkColor: '#ddd',
+            bgColor: '#333',
+            bgOffset: '0 0',
+            nxDomain: true,
+        },
+    };
+
+    // info specific to each use.
+    var runtimeInfo = {
+        logo:               '/images/neustar-logo-tx.png',
+        domain:             'opencdn.jomodns.com',
+        title:              'Malware',
+        message:            'Site may contain content that is harmful, illegal, or malicious to your computer',
+        redirectionHost:    'redirection.ultrarecursive.security.biz',
+        problemUrl:         'http://cpro.baidustatic.com/cpro/ui/noexpire/ws/css/ui_37c473c.css',
+        disputeContact:     'mailto:ultrarecursive@support.neustar',
+        disputeFormEnabled: 'true',
+        sponsorId:          'cb3ba3305bc949ac86fbdb215897de1b',
+        accountId:          '',
+        noDispute:          'false'
+    };
+
+    // custom submit function for dispute form
+    $$$('dispute-form').addEventListener('submit', function(e) {
+        // prevent default behavior of the form
+        e.preventDefault();
+
+        // hide previous messages if any
+        $$$('formResponseMessage').style.display = 'none';
+        $$$('formResponseMessage').textContent = '';
+
+        // disable submit button
+        $$$('formSubmit').disabled = true;
+
+        // get the values from the form
+        var disputePayload = {
+            captchaToken: grecaptcha.getResponse(),
+            domainName:   $$$('formDomain').value,
+            currentCat:   $$$('formCurrentCategory').value,
+            email:        $$$('formEmailAddress').value,
+            suggestedCat: $$$('formSuggestedCategory').value,
+            hostIP:       location.hostname,
+            sponsorId:    $$$('sponsorId').value,
+            accountId:    $$$('accountId').value
+        };
+
+        // send Ajax request to back-end
+        var xhr = new XMLHttpRequest();
+        xhr.onloadend = function() {
+            if ([200, 201, 204].includes(xhr.status)) {
+                $$$('formResponseMessage').style.color = 'white';
+                $$$('formResponseMessage').textContent = JSON.parse(xhr.responseText)['message'];
+                $$$('formSubmit').style.display = 'none';
+                setTimeout(function() {
+                  $$$('dispute-form').style.display = 'none';
+                }, 2500);
+            } else {
+                var errorMessage = "Unable to process your request";
+                if (xhr.responseText && (xhr.responseText.length > 0)) {
+                    errorMessage += ". " + JSON.parse(xhr.responseText)['message'];
+                }
+                $$$('formResponseMessage').style.color = 'red';
+                $$$('formResponseMessage').textContent = errorMessage;
+                $$$('formSubmit').disabled = false;
+            }
+            $$$('formResponseMessage').style.display = 'block';
+        }
+        xhr.open("POST", "/dispute", true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send(JSON.stringify(disputePayload));
+    });
+
+    window.onload = function() {
+        // get the settings that choose warn/block/nxdomain
+        var severityName = "block";
+        if (['warn','block'].indexOf(severityName) < 0) {
+            severityName = 'nxdomain';
+        }
+        var severity = severities[severityName];
+        setSeverity(severity);
+
+        setRuntimeInfo(runtimeInfo);
+
+        var contactForm = $$$('dispute-form');
+    }
+
+    </script>
+
+</body>
+</html>

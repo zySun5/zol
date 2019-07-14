@@ -1,0 +1,51 @@
+#zolapp-float-qrcode{position: fixed;left: 0;top: 50%;margin-top: 0;z-index: 1004;}
+#zolapp-float-qrcode .expand-to-show{padding: 30px 30px 0;width: 99px;height: 168px;background: url(https://icon.zol-img.com.cn/detail/js/module/app-download-float/images/bg.png) center center no-repeat;}
+#zolapp-float-qrcode .product-info{display: block;}
+#zolapp-float-qrcode .product-info:hover{text-decoration: none;}
+#zolapp-float-qrcode .product-info .pic,
+#zolapp-float-qrcode .product-info .pic img{display: block;height: 80px;width: 80px;}
+#zolapp-float-qrcode .product-info .pic{margin-left: auto;margin-right: auto;position: relative;}
+#zolapp-float-qrcode .product-info .pic .text{background: rgba(0,0,0,0.6);height: 20px;line-height: 20px;position: absolute;bottom: 0;left: 0;width: 100%;text-align: center;color: #fff;}
+#zolapp-float-qrcode .product-info .product-name{text-align: center;font-size: 12px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;color: #666}
+#zolapp-float-qrcode .product-info .product-footer{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;text-align: center;}
+#zolapp-float-qrcode .product-info .yen{font-size: 12px;font-style: normal;}
+#zolapp-float-qrcode .product-info .price{font-size: 14px;color: #fe4c4b;}
+#zolapp-float-qrcode .product-info .oriPrice{font-size: 12px;color: #666666;text-decoration: line-through;margin-left: 5px;}
+#zolapp-float-qrcode .qrcode-tip{color: #999;text-align: center;font-size: 12px}
+#zolapp-float-qrcode .qrcode img{display: block;height: 106px;width: 106px;margin-left: auto;margin-right: auto;}
+#zolapp-float-qrcode .close{position: absolute;height: 36px;width: 36px;top: 100%;left: 50%;margin-left: -18px;margin-top: 8px;background: url(https://icon.zol-img.com.cn/detail/js/module/app-download-float/images/close.png) center center no-repeat;transition: all 0.5s}
+#zolapp-float-qrcode .close:hover{transform: rotate(180deg);}
+#zolapp-float-qrcode .pack-to-show{display: none;cursor: pointer;}
+#zolapp-float-qrcode .show-app{padding-top: 12px;font-size: 14px;text-align: center;line-height: 18px;color: #666;white-space: nowrap;overflow: hidden;text-overflow: ellipsis}
+#zolapp-float-qrcode .view-more{font-size: 12px;color: #666;padding-top: 12px;padding-left: 5px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis}
+#zolapp-float-qrcode .view-more .lose-price{color: #fe4c4b}
+
+#zolapp-float-qrcode.full{margin-top: 0;}
+#zolapp-float-qrcode.full .expand-to-show{padding: 52px 20px 0;width: 127px;height: 272px;background: url(https://icon.zol-img.com.cn/detail/js/module/app-download-float/images/bg-big.png) center center no-repeat;}
+#zolapp-float-qrcode.full .qrcode img{height: 83px;width: 83px;}
+
+#zolapp-float-qrcode.packed{bottom: 200px}
+#zolapp-float-qrcode.packed .expand-to-show{display: none;}
+#zolapp-float-qrcode.packed .pack-to-show{display: block;height: 82px;width: 59px;top:50%;margin-top: -41px;z-index: 1004;background: url(https://icon.zol-img.com.cn/detail/js/module/app-download-float/images/sidebg.png) center center no-repeat;position: fixed;left: 0;}
+#zolapp-float-qrcode.packed .pack-to-show:hover{animation:hover 1s infinite;}
+/* .article-side-box .qrcon-icon{display: none;} */
+
+@keyframes hover {
+    0% {transform: translateY(0)}
+    50% {transform: translateY(-15px)}
+    100% {transform: translateY(0)}
+}
+
+#zolapp-float-qrcode.position-3,
+#zolapp-float-qrcode.position-1{left: auto;right: 0;}
+#zolapp-float-qrcode.position-3.packed .pack-to-show,
+#zolapp-float-qrcode.position-1.packed .pack-to-show{left: auto;right: 0;background-image: url(https://icon.zol-img.com.cn/detail/js/module/app-download-float/images/sidebg-right.png)}
+#zolapp-float-qrcode.position-2.packed .pack-to-show{top: 620px;margin-top: 0;bottom: auto}
+#zolapp-float-qrcode.position-3{top: 0;margin-top: 0;}
+#zolapp-float-qrcode.position-3.packed .pack-to-show{top: 20px;margin-top: 0;bottom: auto}
+
+#zolapp-float-qrcode .zolapp-float-title{position: absolute;background-color: #fff;width: 100px;left: 50%;margin-left: -50px;top: 28px;height: 20px;}
+#zolapp-float-qrcode .zolapp-float-title img{display: block;height: 16px;width: 87px;margin-left: auto;margin-right: auto;}
+/* #zolapp-float-qrcode.aligenie .pack-to-show{width: 37px;height: 100px;background-image: url(https://icon.zol-img.com.cn/detail/js/module/app-download-float/images/pack-to-show-left.png)} */
+/* #zolapp-float-qrcode.position-3.packed.aligenie .pack-to-show,
+#zolapp-float-qrcode.position-1.packed.aligenie .pack-to-show{background-image: url(https://icon.zol-img.com.cn/detail/js/module/app-download-float/images/pack-to-show-right.png);} */
