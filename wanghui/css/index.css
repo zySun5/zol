@@ -1,0 +1,773 @@
+/* 顶部-------------------------------------------------------------------- */
+.top{
+    width: 100%;
+    font: 400 12px/34px 'Microsoft YaHei';
+    position: relative;
+    z-index: 1000;
+    height: 34px;
+    /* padding: 1px 10px 0; */
+    color: #333;
+    border-bottom: 1px solid #e6e6e6;
+    background: #fafafa;
+    margin-bottom: 0;
+}
+.top .w{
+    height: 34px;
+}
+.userInfo{
+    float: right;
+    width: 240px;
+}
+.sitenav-links{
+    float: left;
+}
+.sitenav-links a{
+    margin: 0 10px;
+}
+.sitenav-links a:hover{
+    text-decoration: underline;
+}
+/* 顶部-------------------------------------------------------------------- */
+
+
+/* logo部分 ----------------------------------------------------------------*/
+.top-header{
+    height: 73px;
+    line-height: 73px;
+    background: white;
+    box-shadow: 0 3px 3px #ccc;
+    overflow: hidden;
+    border-radius: 3px;
+}
+.logo-box{
+    float: left;
+    margin-top: 21px;
+}
+.logo-box a{
+    float: left;
+    width: 220px;
+    height: 32px;
+    background: url('../img/93.png') no-repeat;
+}
+.logo-box span{
+    float: left;
+    width: 50px;
+    height: 36px;
+    margin: -6px 0 0 7px;
+    background: url('../img/20th.png') no-repeat;
+}
+.nav-box{
+    float: left;
+    margin-left: 90px;
+}
+.nav-box li{
+    float: left;
+    font-size: 16px;
+    margin-right: 48px;
+}
+.nav-box li a{
+    display: block
+}
+.nav-box .on a{
+    border-bottom: 3px solid #fd9840;
+    height: 68px;
+    line-height: 70px;
+    color: #fd9840;
+    margin-top: 3px;
+}
+.nav-box li a:hover{
+    color: #fd9840;
+}
+/* logo部分 ----------------------------------------------------------------*/
+
+
+.lbt{
+    width: 580px;
+    height: 440px;
+    overflow: hidden;
+    margin: 20px 20px 0 0;
+    position: relative;
+    float: left;
+}
+.lbt img{
+    width: 600px;
+    height: 440px;
+}
+.focus-item{
+    width: 280px;
+    height: 210px;
+    overflow: hidden;
+    margin: 20px 20px 0 0;
+    position: relative;
+    float: left;
+    /* background: red; */
+    position: relative;
+}
+.focus-item img{
+    width: 100%;
+}
+.focus-item span{
+    width: 280px;
+    position: absolute;
+    bottom: 5px;
+    line-height: 14px;
+    font-size: 14px;
+    text-align: center;
+}
+.focus-item span a{
+    color: #fff;
+}
+.focus-item span a:hover{
+    text-decoration: underline;
+}
+
+
+/* 精选部分--------------------------------------------------------- */
+.selected{
+    margin-top: 30px;
+}
+.selected-header{
+    height: 45px;
+    line-height: 45px;
+}
+.selected-header a{
+    float: right;
+    font-size: 14px;
+    color: #999;
+    height: 20px;
+    line-height: 20px;
+    padding-left: 25px;
+    margin-top: 14px;
+    background: url('../jlt/labs-ico.png') no-repeat;
+    background-position: 0 -180px;
+}
+.selected-header h2{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.selected-list{
+    margin-top: 11px;
+}
+.selected-list li{
+    width: 380px;
+    overflow: hidden;
+    float: left;
+    border-radius: 5px;
+    background: #fff;
+    margin: 0 20px 30px 0;
+    position: relative;
+    box-shadow: 0 3px 3px #ccc;
+}
+.selected-list li a .title{
+    height: 24px;
+    line-height: 24px;
+    padding: 0 8px;
+    border-radius: 20px;
+    color: #fff;
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+.selected-list li a img{
+    vertical-align: middle;
+}
+.selected-list li a p{
+    display: block;
+    padding: 0 20px;
+    line-height: 50px;
+    font-size: 18px;
+    height: 50px;
+    overflow: hidden;
+}
+.selected-list li .foot-box{
+    border-top: 1px solid #eee;
+    height: 47px;
+}
+.selected-list li .foot-box span{
+    width: 126px;
+    float: left;
+    display: block;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #999;
+    cursor: pointer;
+}
+.selected-list li .foot-box .icon{
+    width: 14px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 9px;
+}
+.selected-list li .foot-box .zan-icon .icon{
+    background: url('../jlt/labs-ico.png') no-repeat;
+    background-position: 0 -47px;
+}
+.selected-list li .foot-box .collect-icon{
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+.selected-list li .foot-box .collect-icon .icon{
+    background: url('../jlt/labs-ico.png') no-repeat;
+    background-position: 0 -86px;
+}
+.selected-list li .foot-box .comment-icon .icon{
+    background: url('../jlt/labs-ico.png') no-repeat;
+    background-position: 0 -126px;
+}
+
+
+/* 新品部分------------------------------------------------------- */
+.news{
+    margin-top: 20px;
+}
+.main{
+    width: 800px;
+    float: left;
+    box-shadow: 0 3px 3px #ccc;
+    overflow: hidden;
+    border-radius: 3px;
+    background: white;
+}
+.main-header{
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+.main-header a{
+    float: right;
+    font-size: 14px;
+    color: #999;
+}
+.main-header a:hover{
+    color: black;
+}
+.main-header h2{
+    /* float: left; */
+    font-size: 24px;
+    font-weight: 400;
+}
+.main-mol{
+    padding: 0 20px 20px;
+    overflow: hidden;
+}
+.main-big{
+    width: 500px;
+    height: 375px;
+    float: left;
+    margin-top: 9px;
+    position: relative;
+}
+.main-big a img{
+    vertical-align: middle;
+}
+.main-big a .title{
+    height: 24px;
+    line-height: 24px;
+    padding: 0 8px;
+    border-radius: 20px;
+    color: #fff;
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: rgba(0,0,0,0.5);
+}
+.main-big a .banner-bg{
+    width: 480px;
+    overflow: hidden;
+    padding: 0 10px;
+    font-size: 20px;
+    height: 240px;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: all .5s;
+    background: url('../jlt/ChMkJ1jQyL2IWkr0AAAFEF3TVcwAAa7BQPhmrMAAAUo492.png') repeat-x;
+}
+.main-big a .banner-bg p{
+    margin-top: 200px;
+}
+.main-hot{
+    width: 250px;
+    float: right;
+}
+.main-hot a{
+    margin-top: 9px;
+    display: block;
+    position: relative;
+}
+.main-hot a img{
+    width: 100%;
+    height: 182px;
+    vertical-align: middle;
+}
+.main-hot a .title{
+    height: 24px;
+    line-height: 24px;
+    padding: 0 8px;
+    border-radius: 20px;
+    color: #fff;
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: rgba(0,0,0,0.5);
+}
+.main-hot a span{
+    width: 230px;
+    padding: 0 10px;
+    color: #fff;
+    font-size: 16px;
+    height: 240px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: all .5s;
+    background: url('../jlt/ChMkJ1jQyL2IWkr0AAAFEF3TVcwAAa7BQPhmrMAAAUo492.png') repeat-x;
+}
+.main-hot a span p{
+    text-align: left;
+    margin-top: 188px;
+}
+
+.side{
+    width: 380px;
+    float: left;
+    box-shadow: 0 3px 3px #ccc;
+    overflow: hidden;
+    border-radius: 3px;
+    background: white;
+    margin-left: 10px;
+}
+.side-header{
+    padding: 0 20px;
+    margin-top: 10px;
+    height: 45px;
+    line-height: 45px;
+}
+.side-header h2{
+    font-size: 24px;
+}
+.side-mol{
+    margin-top: 10px;
+}
+.side-mol li{
+    height: 82px;
+    border-top: 1px solid #eee;
+    padding: 15px 115px 15px 20px;
+    position: relative;
+}
+.side-mol li .btn-review{
+    background: #999;
+    opacity: .6;
+    height: 34px;
+    line-height: 34px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    right: 19px;
+    top: 40px;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 5px;
+}
+.side-mol li p{
+    line-height: 26px;
+    height: 52px;
+    overflow: hidden;
+}
+.side-mol li p a{
+    font-size: 16px;
+}
+.side-mol li .date{
+    font-size: 14px;
+    color: #999;
+    margin-top: 10px;
+}
+.side-mol .foot-more{
+    height: 53px;
+    line-height: 53px;
+    border-top: 1px solid #ededed;
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    display: block;
+    cursor: pointer;
+}
+
+
+/* 对比评测----------------------------------------------------------- */
+.contrast{
+    margin-top: 20px;
+}
+.con-main{
+    width: 800px;
+    float: left;
+    box-shadow: 0 3px 3px #ccc;
+    overflow: hidden;
+    border-radius: 3px;
+    background: white;
+}
+.con-side{
+    width: 380px;
+    float: left;
+    box-shadow: 0 3px 3px #ccc;
+    overflow: hidden;
+    border-radius: 3px;
+    background: white;
+    margin-left: 10px;
+}
+.con-header{
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+.con-header a{
+    float: right;
+    font-size: 14px;
+    color: #999;
+}
+.con-header a:hover{
+    color: black;
+}
+.con-header h2{
+    font-size: 24px;
+    font-weight: 400;
+}
+.con-mol{
+    height: 837px;
+    padding: 0 20px 20px;
+    overflow: hidden;
+}
+.con-mol-ul{
+    width: 780px;
+    margin-top: -10px;
+}
+.con-mol-ul li{
+    width: 240px;
+    float: left;
+    margin: 20px 20px 0 0;
+    position: relative;
+}
+.con-mol-ul li .title{
+    height: 24px;
+    line-height: 24px;
+    padding: 0 8px;
+    border-radius: 20px;
+    color: #fff;
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: rgba(0,0,0,0.5);
+}
+.con-mol-ul li p{
+    font-size: 16px;
+    line-height: 26px;
+    height: 52px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+.con-mol-ul li .compared-foot{
+    font-size: 14px;
+    color: #999;
+    margin-top: 5px;
+}
+.con-mol-ul li .compared-foot .icon{
+    float: right;
+    padding-left: 20px;
+    background: url('../jlt/labs-ico.png') no-repeat;
+    background-position: -61px -132px;
+}
+
+.con-side-header{
+    padding: 0 20px;
+    margin-top: 10px;
+    height: 45px;
+    line-height: 45px;
+}
+.con-side-heade h2{
+    font-size: 24px;
+    font-weight: 400;
+}
+.con-side-mplife{
+    padding: 0 20px;
+    margin-top: 10px;
+    height: 847px;
+}
+.con-side-mplife li{
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.con-side-mplife li .pic img{
+    width: 114px;
+    height: 84px;
+    float: left;
+    margin-right: 10px;
+}
+.con-side-mplife li p{
+    font-size: 16px;
+    line-height: 26px;
+    height: 52px;
+    margin-bottom: 5px;
+}
+.con-side-mplife li span{
+    color: #999;
+    font-size: 14px;
+    padding-left: 20px;
+    background: url('../jlt/labs-ico.png') no-repeat;
+    background-position: -61px -132px;
+}
+
+
+/* 图片评测---------------------------------------------------- */
+.newImg{
+    box-shadow: 0 3px 3px #ccc;
+    overflow: hidden;
+    border-radius: 3px;
+    background: white;
+    margin-top: 20px;
+}
+.new-header{
+    padding: 0 20px;
+    margin-top: 10px;
+    height: 45px;
+    line-height: 45px;
+}
+.new-header a{
+    float: right;
+    font-size: 14px;
+    color: #999;
+}
+.new-header a:hover{
+    color: black;
+}
+.new-header h2{
+    font-size: 24px;
+    font-weight: 400;
+}
+.new-mol{
+    padding: 0 20px 20px;
+    overflow: hidden;
+}
+.new-mol .list{
+    width: 1180px;
+}
+.new-mol .list li{
+    width: 275px;
+    float: left;
+    margin: 20px 20px 0 0;
+    position: relative;
+}
+.new-mol .list li .title{
+    height: 24px;
+    line-height: 24px;
+    padding: 0 8px;
+    border-radius: 20px;
+    color: #fff;
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: rgba(0,0,0,0.5);
+}
+.new-mol .list li img{
+    width: 275px;
+    height: 206px;
+    vertical-align: middle;
+}
+.new-mol .list li p{
+    font-size: 16px;
+    line-height: 26px;
+    height: 52px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+.new-mol .list li .foot{
+    font-size: 14px;
+    color: #999;
+    margin-top: 5px;
+}
+.new-mol .list li .foot .icon{
+    float: right;
+    padding-left: 20px;
+    background: url('../jlt/labs-ico.png') no-repeat;
+    background-position: -61px -132px;
+}
+
+
+/* 最新评测 */
+.zewest{
+    margin-top: 20px;
+}
+.ze-main{
+    width: 800px;
+    float: left;
+    box-shadow: 0 3px 3px #ccc;
+    overflow: hidden;
+    border-radius: 3px;
+    background: white;
+}
+.ze-side{
+    width: 380px;
+    float: left;
+    box-shadow: 0 3px 3px #ccc;
+    overflow: hidden;
+    border-radius: 3px;
+    background: white;
+    margin-left: 10px;
+}
+.ze-header{
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+.ze-main-ul li{
+    padding: 17px 20px;
+    border-top: 1px #e5e5e5 solid;
+    zoom: 1;
+    vertical-align: top;
+}
+.ze-main-ul li .ze-main-li-a{
+    float: left;
+    margin: 0 15px 0 0;
+    width: 160px;
+}
+.ze-main-ul li .info .info-hd{
+    height: 28px;
+    font-size: 22px;
+    line-height: 28px;
+    position: relative;
+    overflow: hidden;
+}
+.ze-main-ul li .info p{
+    height: 48px;
+    font-size: 14px;
+    position: relative;
+    padding: 12px 0 0;
+    overflow: hidden;
+    color: #888;
+    line-height: 24px;
+}
+.ze-main-ul li .info .info-ft{
+    font-size: 14px;
+    color: #999;
+    margin-top: 10px;
+}
+.ze-main-ul li .info .info-ft .info-comment{
+    float: right;
+    padding-left: 20px;
+    background: url('../jlt/labs-ico.png') no-repeat;
+    background-position: -61px -132px
+}
+.ze-mor{
+    height: 53px;
+    line-height: 53px;
+    border-top: 1px solid #ededed;
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    display: block;
+    cursor: pointer;
+}
+
+.ze-side-head{
+    padding: 0 20px;
+    margin-top: 10px;
+    height: 45px;
+    line-height: 45px;
+}
+.ze-side-head a{
+    float: right;
+    font-size: 14px;
+    color: #999;
+}
+.ze-side-head a:hover{
+    color: black;
+}
+.ze-side-head h2{
+    font-size: 24px;
+}
+.ze-side .hot-rank li{
+    border-top: 1px #e5e5e5 solid;
+    padding: 10px 20px 20px;
+}
+.ze-side .hot-rank li .p1{
+    font-size: 16px;
+    line-height: 30px;
+}
+.ze-side .hot-rank li .rank-info{
+    position: relative;
+    height: 92px;
+    padding-left: 160px;
+    margin-top: 5px;
+    overflow: hidden;
+    margin: 0 0 15px 0;
+}
+.ze-side .hot-rank li .rank-info p a{
+    float: left;
+    margin: 10px 20px 0 0;
+    border: 1px solid #ccc;
+    width: 60px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 12px;
+    overflow: hidden;
+    vertical-align: baseline;
+}
+.ze-side .hot-rank li .rank-info .info-pic{
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 120px;
+    height: 90px;
+    border: 1px solid #e8e8e8;
+    float: left;
+}
+.ze-side .hot-rank li .rank-info .info-pic img{
+    width: 100%;
+}
+
+
+
+.fotter{
+    height: 40px;
+    min-width: 960px;
+    overflow: hidden;
+    float: none;
+    clear: both;
+    padding: 0 10px;
+    background: #333;
+    color: #ccc;
+    text-align: left;
+    font-size: 12px;
+    font-family: arial;
+    line-height: 40px;
+    margin: 40px auto 0;
+}
+.fotter span{
+    float: right;
+    margin: 0 -7px 0 0;
+    color: #666;
+    font-family: "宋体";
+    font-size: 10px;
+}
+.fotter span a{
+    color: #666;
+}
+.fotter span a:hover{
+    text-decoration: underline;
+}
