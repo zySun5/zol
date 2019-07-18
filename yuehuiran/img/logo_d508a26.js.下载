@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <style>
+        /* it's all here, no external css file needed */
+        body {
+            font-family: Helvetica, sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 200%;
+            color: #d4cec3;
+            background-color: #421;
+        }
+        #logo-wrapper { position: absolute; padding: 34px; width: 600px; height: 400px;}
+        #main-wrapper { text-align: center; }
+        #main { display: inline-block; padding: 100px 20%; text-align: center; max-width: 30em;}
+        h2   { font-size: 3em; color: white; line-height: 1.3em;}
+        h3   { color: white;}
+        a        { color: #ddd; text-decoration: none; }
+        a:hover  { color: #0cc; }
+        a:active { color: #ccc; }
+        .button-text   { font-size: 14px; font-weight: bold; }
+        #incorrect-button { display: inline-block;
+            padding: 0 1em; line-height: 35px; border: 1px white solid; }
+        #icon {display: inline-block; width: 95px; height: 95px;
+            background-image: url(../category_pages/ultradns/images/icons.png); background-position: 95px 0;}
+        @media only screen and (max-width : 725px) {
+            body { font-size: 12px; }
+            #main { padding: 50px 5%; }
+            #icon { transform: scale(0.5); }
+            #logo {  }
+            #logo-wrapper { padding: 0; width: 300px; height: 200px;
+                transform:  matrix(0.5, 0, 0, 0.5, -75, -50); }
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id=logo-wrapper>
+        <img id=gets-logo src=about:blank>
+    </div>
+
+    <div id=main-wrapper>
+        <div id=main>
+            <div id=icon></div>
+            <br>
+            <h2 id=title></h2>
+            <h3 id=gets-domain></h3>
+            <p id=categoroid>
+                <span id=categorizeLine>This site has been categorized as <span id=category_name></span>.</span>
+                <span id=contextual_msg></span>.
+                <span id=discontinueLine>It is recommended that you do not continue.</span>
+            </p>
+            <p id=nx-domain style=display:none>
+                <b>You have a few options:</b>
+                <br>
+                <b>1)</b> Check the URL for typos and try again.
+                <br>
+                <b>2)</b> Try returning to the previous page.
+            </p>
+            <div style="width: 1em; height: 1em;"></div>
+            <a id=incorrect-button class=button-text href=about:blank>This is incorrect</a>
+            <span style="display: inline-block; width: 1.5em;"></span>
+            <a id=anyway-button class=button-text href=about:blank>Visit the site anyway</a>
+        </div>
+    </div>
+
+    <script>
+    // this gets a node by its id.  $$$('xyz') === jquery $('#xyz') for html node with id=xyz
+    function $$$(id) { return document.getElementById(id) }
+
+    // set whether warn, block, nx
+    function setSeverity(severity) {
+        var body = document.body;
+        body.style.color = severity.inkColor;
+        body.style.backgroundColor = severity.bgColor;
+
+        $$$('title').innerHTML = severity.title;
+
+        $$$('icon').style.backgroundPosition = severity.bgOffset;
+        if (! severity.incorrectButton) $$$('incorrect-button').style.display = 'none';
+        if (! severity.anywayButton) $$$('anyway-button').style.display = 'none';
+
+        if (severity.nxDomain) {
+            $$$('nx-domain').style.display = 'block';
+            $$$('categoroid').style.display = 'none';
+        }
+        if (!severity.anywayButton)
+            $$$('discontinueLine').style.display = 'none';  // redundant except for warn
+    }
+
+    // all additional info needed
+    function setRuntimeInfo(runtimeInfo) {
+        $$$('gets-logo').src = '../category_pages/ultradns/images/'+ runtimeInfo.logo;
+        $$$('gets-domain').innerHTML = runtimeInfo.domain;
+        $$$('category_name').innerHTML = runtimeInfo.title;
+        $$$('contextual_msg').innerHTML = runtimeInfo.message;
+        $$$('anyway-button').href = '?redirect='+ runtimeInfo.problemUrl;
+
+        // form the url for the Incorrect button
+        var incor = "mailto:ultrarecursive@support.neustar";
+        incor += "?subject=UltraDNS web category dispute"
+        incor += "&body=Domain for "+ runtimeInfo.problemUrl +" is categorized as "+ runtimeInfo.title +"."
+        $$$('incorrect-button').href = incor;
+
+        if ('blacklisted' == runtimeInfo.title)
+            $$$('categorizeLine').style.display = 'none';  // redundant
+    }
+
+    var severities = {
+        warn: {
+            title: 'Site Warning',
+            inkColor: '#d4cec3',
+            bgColor: '#4d3000',
+            bgOffset: '95px 0',
+            incorrectButton: true,
+            anywayButton: true,
+        },
+        block: {
+            title: 'Site Blocked',
+            inkColor: '#ebe3e3',
+            bgColor: '#4b0009',
+            bgOffset: '190px 0',
+            incorrectButton: true,
+        },
+        nx: {
+            title: "Sorry, we couldn't find that site.",
+            inkColor: '#ddd',
+            bgColor: '#333',
+            bgOffset: '0 0',
+            nxDomain: true,
+        },
+    };
+
+    // info specific to each use.
+    var runtimeInfo = {
+        logo: 'neustar-logo-tx.png',
+        domain: 'cpro.baidustatic.com',
+        title: 'Malware',
+        message: 'Site may contain content that is harmful, illegal, or malicious to your computer',
+        problemUrl: 'http%3A%2F%2Fcpro.baidustatic.com%2Fcpro%2Fui%2Fnoexpire%2Fws%2Fwidget%2Flogo_d508a26.js&msgID1=116406&AddInType=2&PlatformInfo=DNSA&Version=3.0.5&blockedDomain=opencdn.jomodns.com',
+        webServerIp: '23.21.224.172',
+    };
+
+    window.onload = function() {
+
+        // get the settings that choose warn/block/nx
+        var severityName = "block";
+        if ('error' == severityName) severityName = 'nx';
+
+        var severity = severities[severityName];
+        setSeverity(severity);
+
+        setRuntimeInfo(runtimeInfo);
+    }
+    </script>
+</body>
+</html>
+
+<script>
+var remove_warn_visit_link = ;
+
+$(document).ready(function(){
+if(remove_warn_visit_link == true){
+        $('.link-anyway').hide();		//hiding "I want to visit the site anyway" link on malware page
+}
+});
+</script>
+

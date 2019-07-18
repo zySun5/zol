@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://mobile.zol.com.cn/survey_delegate.html?height=261 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+	
+	<title>survey</title>
+<script>document.domain="zol.com.cn"</script>
+</head>
+<body>
+<script>
+window.onload = function(){
+    var surery = window.top.document.getElementById('cbsi_survey');
+    function handleHash(){
+        var height= location.href.match(/height=(\d+)/);
+        if(typeof(height[1])!=='undefined' && height[1]){ 
+            surery.style.height = height[1] + 'px';
+        }   
+    };
+    handleHash();
+    var isApp = window.navigator.userAgent.match(/ZOL\/[\d\.]+/i);
+    if(isApp){
+        var callback = location.href.match(/callback=(\w+)/);
+        var iframe = surery.querySelector('iframe');
+        if(callback && callback[1]){
+            onLogin = callback[1];
+            window.top[onLogin] = function(b,u,s){
+                if(b){
+                    var frameSrc = iframe.src.match(/\#/) ? iframe.src+'&' : iframe.src+'#'; 
+                    iframe.src = frameSrc+onLogin+':'+u+'/'+s;
+                }
+            };
+            window.top.location.href = 'login://js/'+onLogin;
+        }
+    }
+};
+</script> 
+
+</body></html>

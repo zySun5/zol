@@ -1,0 +1,34 @@
+if (typeof adsameMapping == 'undefined') {
+    var adsameMapping = function() {
+        //var mappingUrls = ["http://mapping.adsame.com/ad", "http://chuanyang-cm.cn.miaozhen.com/x.gif?v=chuanyang&o=http://mapping.adsame.com/mz?uid=__M-MZID__", "http://mapping.adsame.com/fuge"];
+        var mappingUrls = ["http://mapping.adsame.com/ad", "http://mapping.adsame.com/fuge"];
+        for(var i = 0, l = mappingUrls.length; i < l; i ++) {
+            var imgEl = new Image();
+            imgEl.src = mappingUrls[i];
+            imgEl.width = 0;
+            imgEl.height = 0;
+            imgEl.style.cssText = "border:0;width:0;height:0;position:fixed;left: -99999px;";
+            document.body.appendChild(imgEl);
+        }
+    };
+}
+
+if(typeof adsameCheckLoad == 'undefined') {
+    window.__adsame_delaytime__ = 0;
+    var adsameCheckLoad = function(fn) {
+	if(document.cookie.indexOf("ASID") !== -1 || window.__adsame_delaytime__ >= 5000) {
+            fn();
+        }
+        else {
+            window.__adsame_delaytime__ += 10;
+            setTimeout(adsameCheckLoad, 10, fn);
+        }
+    }
+}
+adsameCheckLoad(function() {
+    if(typeof window.__adsame_mapping__ == 'undefined') {
+        var time = new Date().getTime();
+        adsameMapping();
+        window.__adsame_mapping__ = true;
+    }
+});
