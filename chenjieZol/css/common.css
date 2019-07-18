@@ -1,0 +1,98 @@
+		body,
+		ul,
+		p,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		input,
+		dl,
+		dt,
+		dd {
+		  margin: 0;
+		  padding: 0;
+		}
+		
+		li {
+		  list-style: none;
+		}
+		
+		a {
+		  text-decoration: none;
+		  color: #000;
+		}
+		
+		a:hover {
+		  color: #c81623;
+		}
+		
+		img {
+		  border: 0 none;
+		  /*清除ie6默认图片边框*/
+		  vertical-align: middle;
+		  /*清除图片默认底部缝隙*/
+		}
+		
+		input,
+		textarea {
+		  outline: none;
+		  /*清除默认轮廓线*/
+		  border: 0 none;
+		  /*清除默认边框*/
+		}
+		/*版心*/
+		
+		.w {
+		  width: 1000px;
+		  margin: 0 auto;
+		}
+		
+		body {
+		  font: 12px/1.5 arial, 'microsoft yahei';
+		  background-color: #fff;
+		}
+		
+		.fl {
+		  float: left;
+		}
+		
+		.fr {
+		  float: right;
+		}
+		
+		.clearfix:before,
+		.clearfix:after {
+		  content: "";
+		  display: table;
+		}
+		
+		.clearfix:after {
+		  clear: both;
+		}
+		
+		.clearfix {
+		  *zoom: 1;
+		}
+		
+		i,
+		em {
+		  font-style: normal;
+		}
+		
+		.f14 {
+		  font-size: 14px;
+		}
+		
+		.f16 {
+		  font-size: 16px;
+		}
+		
+		.red {
+		  color: #e60012;
+		}
+		
+		.tc {
+		  text-align: center;
+		}
