@@ -1,0 +1,121 @@
+/*初始化CSS*/
+
+
+/*清除默认样式*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    outline: 0;
+    border: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+img {
+    /*清除ie6默认的边框*/
+    border: 0;
+    /*清除图片底部的缝隙*/
+    vertical-align: middle;
+}
+
+
+/*常用样式*/
+
+body {
+    font: 12px arial, 'microsoft yahei';
+    color: #666;
+}
+/* 通栏 */
+.connect {
+    width: 100%;
+}
+
+/*版心*/
+
+.wrapper {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+a {
+    color: #666;
+}
+
+a:hover {
+    color: #c81623;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: '';
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.red {
+    color: #c81623;
+}
+
+.f12 {
+    font-size: 12px;
+}
+
+.f14 {
+    font-size: 14px;
+}
+
+.f16 {
+    font-size: 16px;
+}
+
+.f18 {
+    font-size: 18px;
+}
+
+.f20 {
+    font-size: 20px;
+}
+
+.f22 {
+    font-size: 22px;
+}
+

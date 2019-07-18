@@ -1,0 +1,245 @@
+body {
+  background-color: #eee;
+}
+.nav_bgc {
+  height: 30px;
+  line-height: 30px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #e6e6e6;
+}
+.nav_bgc li {
+  float: left;
+}
+.nav_bgc .nav ul:nth-child(1) li {
+  margin: 0 10px;
+}
+.nav_bgc .hid span {
+  float: left;
+}
+.nav_bgc .hid a {
+  display: block;
+  float: left;
+  width: 24px;
+  height: 25px;
+  text-indent: -9999px;
+  margin-top: 3px;
+  margin-left: 5px;
+  background: url('../img/globalSiteNav.png') no-repeat;
+}
+.nav_bgc .hid a:nth-child(3) {
+  background-position: -24px 0;
+}
+.nav_bgc .hid a:nth-child(4) {
+  background-position: -48px 0;
+}
+.logo {
+  padding: 26px 0;
+}
+.header {
+  background-color: #d23232;
+  height: 66px;
+  line-height: 66px;
+}
+.header ul li {
+  float: left;
+  padding: 0 20px;
+  height: 66px;
+}
+.header ul li a {
+  font-size: 18px;
+  color: #fff;
+}
+.header input,
+.header button {
+  height: 40px;
+  float: left;
+  margin-top: 11px;
+}
+.header input {
+  width: 300px;
+  box-sizing: border-box;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 15px;
+  outline: none;
+  border: none;
+}
+.header button {
+  width: 90px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  outline: none;
+  border: none;
+  background: #bc1d1d;
+}
+.inner {
+  height: 435px;
+  background: #222;
+  overflow: hidden;
+}
+.inner li img {
+  width: 800px;
+}
+.activity {
+  padding-top: 20px;
+}
+.activity .act_left {
+  width: 150px;
+  height: 466px;
+}
+.activity .act_left li:nth-child(1) {
+  background-color: #d23232;
+}
+.activity .act_left li:nth-child(1) a {
+  color: #fff;
+  font-weight: 700;
+}
+.activity .act_left li {
+  height: 54px;
+  line-height: 54px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #eee;
+  margin-top: -1px;
+}
+.activity .act_left li:hover {
+  background-color: #d23232;
+}
+.activity .act_left li:hover a {
+  color: #fff;
+  font-weight: 700;
+}
+.activity .act_left i {
+  display: block;
+  float: left;
+  margin: 1px;
+  text-align: center;
+  line-height: 25px;
+  color: #fff;
+  width: 19px;
+  height: 25px;
+  background-color: #d23232;
+}
+.activity .act_right .act_content {
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  width: 840px;
+  height: 240px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.activity .act_right .act_content dl {
+  float: left;
+}
+.activity .act_right .act_content dl dt {
+  font-weight: 700;
+  float: left;
+  margin-top: 13px;
+}
+.activity .act_right .act_content dl dd {
+  width: 738px;
+  margin-left: 59px;
+}
+.activity .act_right .act_content dl dd a:nth-child(1) {
+  background-color: #d23232;
+  color: #fff;
+}
+.activity .act_right .act_content dl dd a {
+  display: block;
+  float: left;
+  width: 72px;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 2px;
+  margin: 10px 10px 0;
+  border: 1px solid #eee;
+  text-align: center;
+}
+.activity .act_right .act_content dl dd a:hover {
+  background-color: #d23232;
+  color: #fff;
+}
+.activity .act_body ul li {
+  width: 840px;
+  height: 552px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+.activity .act_body ul li .title {
+  padding-top: 20px;
+  font-size: 14px;
+}
+.activity .act_body ul li .title a {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+}
+.activity .act_body ul li .title p {
+  color: #000;
+  line-height: 30px;
+}
+.activity .act_body ul li .title p span {
+  color: #666;
+}
+.activity .act_body ul li .time {
+  width: 235px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 14px ;
+  padding: 0 10px 0px 30px;
+  border: 1px solid #ddd;
+}
+.activity .act_body ul li a img {
+  width: 798px;
+  height: 335px;
+}
+.footer {
+  height: 40px;
+  line-height: 40px;
+  margin-top: 50px;
+  padding: 0 10px;
+  background-color: #333;
+  color: #ccc;
+}
+.footer span:nth-child(2) {
+  padding-left: 115px;
+}
+.footer span:nth-child(2) a {
+  color: #ccc;
+  padding: 0 6px;
+}
+.info {
+  position: fixed;
+  right: 380px;
+  top: 800px;
+  width: 60px;
+  height: 60px;
+  background-color: #d23232;
+  display: none;
+}
+.info a {
+  color: #fff;
+  display: block;
+}
+.info a .jt {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  width: 30px;
+  height: 30px;
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  transform: rotate(45deg);
+}
+.info a span {
+  position: absolute;
+  bottom: 0;
+  left: 4px;
+}
+.item-content img {
+  width: 600px;
+}
