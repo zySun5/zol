@@ -22,12 +22,12 @@ $('.wydh').mouseleave(function() {
 // 功能2 鼠标进入导航栏出现下拉菜单
 $('.nav>li').mouseenter(function() {
   console.log($(this));
-  $(this).children('ul').slideDown(500);
+  $(this).children('ul').stop().slideDown(500).siblings('ul').slideUp();
 });
 $('.nav>li').mouseleave(function() {
   console.log($(this));
-  $(this).children('ul').slideUp(500)
-    .siblings('ul');
+  $(this).children('ul').stop().slideUp(500)
+    .siblings('ul').slideDown();
 });
 //功能3 固定编辑推荐
 
@@ -47,7 +47,7 @@ $('.tab-nav>li').mouseenter(function() {
   var i = $(this).index();
   $('.tab-list  img').eq(i).css({ 'display': 'block' })
     .siblings().css({ 'display': 'none' });
-  $(this).children('span').addClass('hengxian').siblings().removeClass('hengxian');
+  $(this).children('span').addClass('hengxian').siblings('span').removeClass('hengxian');
 
 });
 $('.tab-nav>li').mouseleave(function() {
