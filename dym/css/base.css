@@ -1,0 +1,140 @@
+/*清除默认样式*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  /*清除ie6默认图片边框*/
+  border: 0;
+  /*清除图片底部默认缝隙*/
+  vertical-align: middle;
+}
+
+input {
+  border: 0;
+  /*清除轮廓线*/
+  outline: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+i,
+em {
+  font-style: normal;
+}
+
+
+/*常用样式*/
+
+body {
+  font: 12px arial, 'microsoft yahei';
+  color: #333;
+  background-color: #fff;
+}
+
+.w {
+  width: 1002px;
+  margin: 0 auto;
+}
+
+a {
+  color: #666;
+}
+
+a:hover {
+  color: rgb(187, 37, 37);
+}
+
+.tc {
+  text-align: center;
+}
+
+.db {
+  display: block;
+}
+
+.dib {
+  display: inline-block;
+}
+
+.f12 {
+  font-size: 12px;
+}
+
+.f14 {
+  font-size: 14px;
+}
+
+.f16 {
+  font-size: 16px;
+}
+
+.f18 {
+  font-size: 18px;
+}
+
+.f20 {
+  font-size: 20px;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+
+/*定义字体*/
+
+
+/*字体图标使用步骤
+1.下载字体图标,拷贝到fonts文件夹
+2.找到说明文档demo_index.html
+3.按照说明拷贝代码到css文件里,注意路径的问题
+4.定义类名(iconfont),调用字体图标的字体名称
+5.在页面上,写标签, 复制字体图标的代码,调用iconfont
+*/
+
+@font-face {
+  /*定义字体的名称*/
+  font-family: 'iconfont';
+  src: url('../fonts/iconfont.eot');
+  src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'), url('../fonts/iconfont.woff2') format('woff2'), url('../fonts/iconfont.woff') format('woff'), url('../fonts/iconfont.ttf') format('truetype'), url('../fonts/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: 'iconfont';
+}
