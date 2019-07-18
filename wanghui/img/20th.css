@@ -1,0 +1,297 @@
+.anniversary20 {
+    float: left;
+    width: 50px;
+    height: 36px;
+    margin: -6px 0 0 7px;
+    background: url('http://icon.zol-img.com.cn/article/2011/logo2019/20th.png') no-repeat center;
+}
+
+.anniversary-home .logo-mall {
+    float: left;
+    width: 114px;
+    height: 38px;
+    padding-left: 10px;
+    margin: 40px 0 0 10px;
+    overflow: hidden;
+    border-left: 1px solid #e6e6e6;
+}
+
+.zm-entrance-mol {
+    width: 1000px;
+    margin: 0 auto;
+    font-family: "Microsoft YaHei";
+}
+
+.zm-entrance-mol a {
+    text-decoration: none;
+    color: #225086;
+}
+
+.zm-entrance-mol a:hover {
+    color: #c00;
+    text-decoration: underline;
+}
+
+.zm-entrance-mol_fl {
+    width: 760px;
+    float: left;
+}
+
+.zm-entrance-mol_fr {
+    width: 220px;
+    float: right;
+}
+
+.zm-entrance-mol_head {
+    height: 36px;
+    line-height: 36px;
+    border-bottom: 2px solid #e6e6e6;
+}
+
+.zm-entrance-mol_tit {
+    font-size: 18px;
+    color: #333;
+    font-weight: normal;
+}
+
+.zm-entrance-mol_logo {
+    width: 72px;
+    height: 24px;
+    overflow: hidden;
+    text-indent: -999em;
+    float: left;
+    margin-top: 5px;
+}
+
+.zm-entrance-mol_logo a {
+    display: block;
+    background: url(http://icon.zol-img.com.cn/images/zm.png) no-repeat;
+    width: 72px;
+    height: 24px;
+}
+
+.zm-entrance-mol_slogen {
+    font-size: 12px;
+    color: #999;
+    float: left;
+    margin-left: 10px;
+}
+
+.zm-entrance-mol_url {
+    margin-left: 30px;
+    float: left;
+}
+
+.zm-entrance-mol_url a {
+    float: left;
+    color: #666;
+    font-size: 14px;
+}
+
+.zm-entrance-mol_url em {
+    float: left;
+    margin: 0 9px;
+    color: #e6e6e6;
+    height: 14px;
+    width: 1px;
+}
+
+.zm-entrance-mol_list {
+    margin-top: 5px;
+    margin-left: -10px;
+}
+
+.zm-entrance-mol_list li {
+    width: 144px;
+    float: left;
+    margin: 10px 0 0 10px;
+}
+
+.zm-entrance-mol_list .zm-entrance-mol_img {
+    display: block;
+    position: relative;
+    width: 144px;
+    height: 108px;
+}
+
+.zm-entrance-mol_img .tally {
+    width: 31px;
+    height: 14px;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    overflow: hidden;
+    text-indent: -999em;
+}
+
+.zm-entrance-mol_img .haowu {
+    background: url(http://icon.zol-img.com.cn/images/zm-iocn-haowu.png) no-repeat;
+}
+
+.zm-entrance-mol_img .haojia {
+    background: url(http://icon.zol-img.com.cn/images/zm-iocn-haojia.png) no-repeat;
+}
+
+.zm-entrance-mol_list .zm-entrance-mol_tit {
+    font-size: 14px;
+    line-height: 22px;
+    display: block;
+    height: 44px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.zm-entrance-mol_list .zm-entrance-mol_tit:hover {
+    color: #c00;
+    text-decoration: underline;
+}
+
+.zm-entrance-mol_txtitem {
+    height: 27px;
+    line-height: 27px;
+    display: block;
+    font-size: 12px;
+}
+
+.zm-entrance-mol_txtitem span {
+    float: right;
+    color: #ca0813;
+    margin-left: 10px;
+}
+
+.zm-entrance-mol_rankinfo {
+    position: relative;
+    padding-left: 92px;
+    display: none;
+    margin-bottom: 5px;
+}
+
+.zm-entrance-mol_rankinfo .pic {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.zm-entrance-mol_txt {
+    font-size: 12px;
+    line-height: 16px;
+    display: block;
+    overflow: hidden;
+    height: 32px;
+}
+
+.zm-entrance-mol_tag {
+    background: #f44d4a;
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    padding: 0 1px 0 2px;
+    margin-top: 7px;
+}
+
+.zm-entrance-mol_tag label {
+    display: inline-block;
+    background: #fff;
+    color: #f44d4a;
+    padding: 0 4px;
+    height: 14px;
+    line-height: 14px;
+    margin-left: 2px;
+}
+
+.zm-entrance-mol_mall {
+    margin-top: 8px;
+}
+
+.zm-entrance-mol_mall span {
+    font-size: 12px;
+    margin-right: 10px;
+    float: left;
+}
+
+.price-true {
+    color: #f44d4a;
+}
+
+.price-false {
+    color: #999;
+}
+
+.zm-entrance-mol_txtlist {
+    margin-top: 10px;
+}
+
+.zm-entrance-mol_txtlist li.cur .zm-entrance-mol_txtitem {
+    display: none;
+}
+
+.zm-entrance-mol_txtlist li.cur .zm-entrance-mol_rankinfo {
+    display: block;
+}
+
+.zm-entrance-mol_img img {
+    width: 144px;
+    height: 108px;
+    display: block;
+}
+
+.zm-entrance-mol_rankinfo .pic img {
+    width: 82px;
+    height: 82px;
+}
+
+.zm-entrance-mol_txtitem {
+    height: 27px;
+    line-height: 27px;
+    display: block;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.zm-w1200 {
+    width: 1200px;
+}
+
+.zm-w1200 a {
+    color: #333;
+}
+
+.zm-w1200 a:hover {
+    color: #c00;
+}
+
+.zm-w1200 .zm-entrance-mol_fl {
+    width: 920px;
+}
+
+.zm-w1200 .zm-entrance-mol_fl li {
+    width: 176px;
+}
+
+.zm-w1200 .zm-entrance-mol_img,
+.zm-w1200 .zm-entrance-mol_img img {
+    width: 176px;
+    height: 132px;
+}
+
+.zm-w1200 .zm-entrance-mol_fr {
+    width: 250px;
+}
+
+.zm-w1200 .zm-entrance-mol_rankinfo {
+    height: 88px;
+    padding-left: 98px;
+}
+
+.zm-w1200 .zm-entrance-mol_rankinfo .pic,
+.zm-w1200 .zm-entrance-mol_rankinfo .pic img {
+    width: 88px;
+    height: 88px;
+}
+
+.zm-w1200 .zm-entrance-mol_txtlist li {
+    margin-top: 2px;
+}
